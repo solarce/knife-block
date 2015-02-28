@@ -1,5 +1,10 @@
 language: ruby
 rvm:
   - 2.2.0
-  - 2.1.5
-  - 2.0.0-p598
+matrix:
+  include:
+    - ruby: "2.2.0"
+      env: CHEF_DK=false
+    - ruby: "2.2.0"
+      env: CHEF_DK=true
+script: ./bin/chef_dk_install.sh $CHEF_DK
