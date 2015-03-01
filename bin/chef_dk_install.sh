@@ -24,6 +24,8 @@ install_chefdk() {
     exit 1
   fi
   eval "$(chef shell-init bash)"
+  which ruby
+  which gem
 }
 
 if [[ -n $1 ]]; then
