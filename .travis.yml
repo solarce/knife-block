@@ -1,10 +1,8 @@
 language: ruby
-rvm:
-  - 2.2.0
 matrix:
   include:
     - rvm: "2.2.0"
       env: CHEF_DK=false
     - rvm: "2.2.0"
       env: CHEF_DK=true
-script: bash -x ./bin/chef_dk_install.sh $CHEF_DK
+script: bash -x ./bin/tests.sh $CHEF_DK
