@@ -12,12 +12,8 @@ ubuntu_check(){
 }
 
 install_chefdk() {
-  #CHEF_DK_VERSION="0.4.0-1"
-  #CHEF_DK_URL=https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_"$CHEF_DK_VERSION"_amd64.deb
-  #CHEF_DK_DEB=/tmp/chefdk_"$CHEF_DK_VERSION"_installer.deb
   ubuntu_check
-  #curl -s $CHEF_DK_URL -o $CHEF_DK_DEB
-  #sudo dpkg -i $CHEF_DK_DEB > /dev/null 2>&1
+
   curl -s https://packagecloud.io/gpg.key | sudo apt-key add -
   echo "deb https://packagecloud.io/chef/stable/ubuntu/ precise main" \
     | sudo tee -a /etc/apt/sources.list.d/chef.list
