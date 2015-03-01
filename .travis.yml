@@ -1,4 +1,14 @@
 language: ruby
-rvm:
-  - 1.9.3
-  - 1.8.7
+before_install:
+    - sudo apt-get update -qq
+    - sudo apt-get install -y apt-transport-https
+matrix:
+  include:
+    - rvm: "2.0"
+    - rvm: "2.1"
+      env: CHEF_DK=true
+    - rvm: "2.1"
+      env: CHEF_DK=false
+    - rvm: "2.2"
+script:
+  - ./bin/tests.sh $CHEF_DK
