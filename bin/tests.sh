@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -
+#!/usr/bin/env bash
 
 # Check if there is an argument for chefdk, if there is
 # install chefdk and use it's ruby, otherwise use the
