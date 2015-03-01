@@ -18,12 +18,11 @@ install_chefdk() {
   ubuntu_check
   #curl -s $CHEF_DK_URL -o $CHEF_DK_DEB
   #sudo dpkg -i $CHEF_DK_DEB > /dev/null 2>&1
-  curl https://packagecloud.io/gpg.key | sudo apt-key add -
+  curl -s https://packagecloud.io/gpg.key | sudo apt-key add -
   echo "deb https://packagecloud.io/chef/stable/ubuntu/ precise main" \
     | sudo tee -a /etc/apt/sources.list.d/chef.list
-  sudo apt-get install -y apt-transport-https
   sudo apt-get update -qq
-  sudo apt-get install -y chefdk
+  sudo apt-get install -yqq chefdk
   chef verify > /dev/null 2>&1
   chefdk_installed_correctly=$?
   if [[ $chefdk_installed_correctly != 0 ]]; then
